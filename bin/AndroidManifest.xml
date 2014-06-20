@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.iss"
+    android:versionCode="4"
+    android:versionName="1.4" >
+
+    <uses-sdk
+        android:minSdkVersion="9"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true" >
+        <meta-data
+            android:name="SZICITY_APPKEY"
+            android:value="3clhitctfu6k" />
+        <meta-data
+            android:name="SZICITY_CHANNEL"
+            android:value="CHANNEL108" />
+    </application>
+
+</manifest>
