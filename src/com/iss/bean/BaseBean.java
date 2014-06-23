@@ -44,6 +44,33 @@ public abstract class BaseBean<T> implements Serializable {
 			throw new NetRequestException(new Error("1000000",Error.COMERRORINFO));
 		}
 	}
+	
+	
+	
+	/**
+	 * 检查数据可用性,多个回复值
+	 * 
+	 * 
+	 * @param jsonObj
+	 * @return 不正确返回Error,正确返回true
+	 * @throws NetRequestException 
+	 */
+	public boolean CheckJson(JSONObject jo, String Datatype,String ...strings) throws NetRequestException {
+
+		String optString = jo.optString("response");
+
+		if (Datatype.equals(optString)) {
+			return true;
+		} if(strings!=null){
+			return true;
+		}else if ("error".equals(optString)) {
+			Error error = new Error();
+			throw new NetRequestException(error.parseJSON(jo)) ;
+		} else {
+			throw new NetRequestException(new Error("1000000",Error.COMERRORINFO));
+		}
+	}
+	
 
 	/**
 	 * 将json对象转化为Bean实例
